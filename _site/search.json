@@ -135,8 +135,36 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to my GitHub Page!",
+    "title": "My Project Page",
     "section": "",
-    "text": "Hello! I’m Kara and I’m currently a student-athlete at Davidson College studying Mathematics and Data Science. I have discovered a love of working with numbers and problem-solving through code, and my esteemed projects will be located on this page!\nAs a woman in STEM and in collegiate sport, I want other girls and women to be uplifted and encouraged to follow their passions and dreams, no matter the social barriers. With this, I have been able to find an intersection between my interest in problem-solving and quantitative reasoning with my passion for the empowerment of women. I have had the opportunity to research, refine, and visualize the data surrounding the gender wage gap and the progress that various legislative actions had made on gender equity. This project, “Gender Inequities through an Economic Lens”, was created with R in Jupyter Notebook."
+    "text": "I’m a student-athlete at Davidson College studying Mathematics and Data Science with a strong interest in applying quantitative methods to real-world problems.\nMy work focuses on data analysis, visualization, and applied machine learning, particularly in areas related to economic equity and sports analytics.\nI’m driven by the possibility of joining the advancement of women in male-dominated fields that used to suppress our presence, such as STEM fields, sports, and leadership, and discovering how my own experience can be leveraged to elevate other women to their goals."
+  },
+  {
+    "objectID": "index.html#hi-im-kara",
+    "href": "index.html#hi-im-kara",
+    "title": "My Project Page",
+    "section": "",
+    "text": "I’m a student-athlete at Davidson College studying Mathematics and Data Science with a strong interest in applying quantitative methods to real-world problems.\nMy work focuses on data analysis, visualization, and applied machine learning, particularly in areas related to economic equity and sports analytics.\nI’m driven by the possibility of joining the advancement of women in male-dominated fields that used to suppress our presence, such as STEM fields, sports, and leadership, and discovering how my own experience can be leveraged to elevate other women to their goals."
+  },
+  {
+    "objectID": "index.html#featured-projects",
+    "href": "index.html#featured-projects",
+    "title": "My Project Page",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\nGender Inequities through an Economic Lens\nAn economic and data-driven analysis of the gender wage gap in the United States using U.S. Census data.\nThis project explores long-term earnings trends, legislative milestones, and disparities across time.\n👉 View project\n\n\n\nClustering Recruits\nA machine-learning project that applies PCA, K-Means clustering, and data imputation to football recruiting metrics.\nDesigned to uncover meaningful patterns among recruits and support data-informed evaluation.\n👉 View project"
+  },
+  {
+    "objectID": "index.html#technical-skills",
+    "href": "index.html#technical-skills",
+    "title": "My Project Page",
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\nLanguages: Python, R, SQL\n\nTools: pandas, scikit-learn, seaborn, matplotlib, tidyverse\n\nTechniques: data visualization, data analysis, PCA, clustering, regression\n\nPlatforms: Jupyter, Quarto, GitHub Pages, MySQLWorkbench"
+  },
+  {
+    "objectID": "index.html#lets-connect",
+    "href": "index.html#lets-connect",
+    "title": "My Project Page",
+    "section": "Let’s Connect",
+    "text": "Let’s Connect\nYou can find my work and experience here: - GitHub - LinkedIn"
   }
 ]

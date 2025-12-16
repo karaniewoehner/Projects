@@ -18,9 +18,9 @@ website:
         href: https://github.com/karaniewoehner
 format:
   html:
-    theme: journal
+    theme: cosmo
     css: styles.css
-    toc: true
+    toc: false
 
 execute:
   freeze: auto
