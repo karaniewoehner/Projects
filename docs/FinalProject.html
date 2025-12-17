@@ -73,10 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ccd81253fefb92e9cd3f9eb5b5d87b54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,12 +108,175 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -140,9 +307,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools tools-wide">
     <a href="https://www.linkedin.com/in/kara-niewoehner" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
     <a href="https://github.com/karaniewoehner" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -150,10 +318,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description">Data Description</a>
+  <ul class="collapse">
+  <li><a href="#data-set-1-number-and-real-median-earnings-of-total-workers-and-full-time-year-round-workers-by-sex-and-female-to-male-earnings-ratio-1960-to-2017" id="toc-data-set-1-number-and-real-median-earnings-of-total-workers-and-full-time-year-round-workers-by-sex-and-female-to-male-earnings-ratio-1960-to-2017" class="nav-link" data-scroll-target="#data-set-1-number-and-real-median-earnings-of-total-workers-and-full-time-year-round-workers-by-sex-and-female-to-male-earnings-ratio-1960-to-2017">Data Set 1: Number and Real Median Earnings of Total Workers and Full-Time, Year-Round Workers by Sex and Female-to-Male Earnings Ratio: 1960 to 2017</a>
+  <ul class="collapse">
+  <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition">Composition</a></li>
+  <li><a href="#relevance" id="toc-relevance" class="nav-link" data-scroll-target="#relevance">Relevance</a></li>
+  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
+  </ul></li>
+  <li><a href="#data-set-2-households-by-total-money-income-race-and-hispanic-origin-of-householder-1967-to-2017" id="toc-data-set-2-households-by-total-money-income-race-and-hispanic-origin-of-householder-1967-to-2017" class="nav-link" data-scroll-target="#data-set-2-households-by-total-money-income-race-and-hispanic-origin-of-householder-1967-to-2017">Data Set 2: Households by Total Money Income, Race, and Hispanic Origin of Householder: 1967 to 2017</a>
+  <ul class="collapse">
+  <li><a href="#composition-1" id="toc-composition-1" class="nav-link" data-scroll-target="#composition-1">Composition</a></li>
+  <li><a href="#relevance-1" id="toc-relevance-1" class="nav-link" data-scroll-target="#relevance-1">Relevance</a></li>
+  <li><a href="#source-1" id="toc-source-1" class="nav-link" data-scroll-target="#source-1">Source</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import Data</a></li>
+  <li><a href="#loading-data-for-total-male-and-female-workers-over-time" id="toc-loading-data-for-total-male-and-female-workers-over-time" class="nav-link" data-scroll-target="#loading-data-for-total-male-and-female-workers-over-time">Loading Data for Total Male and Female Workers Over Time</a></li>
+  <li><a href="#plotting-total-male-and-female-workers-over-time" id="toc-plotting-total-male-and-female-workers-over-time" class="nav-link" data-scroll-target="#plotting-total-male-and-female-workers-over-time">Plotting Total Male and Female Workers Over Time</a></li>
+  <li><a href="#plotting-total-male-and-female-workers-over-time-1" id="toc-plotting-total-male-and-female-workers-over-time-1" class="nav-link" data-scroll-target="#plotting-total-male-and-female-workers-over-time-1">Plotting Total Male and Female Workers Over Time</a></li>
+  <li><a href="#loading-data-for-median-income-for-fulltime-and-all-workers-over-time" id="toc-loading-data-for-median-income-for-fulltime-and-all-workers-over-time" class="nav-link" data-scroll-target="#loading-data-for-median-income-for-fulltime-and-all-workers-over-time">Loading Data for Median Income for Fulltime and All Workers Over Time</a></li>
+  <li><a href="#plotting-median-income-for-fulltime-and-all-workers-over-time" id="toc-plotting-median-income-for-fulltime-and-all-workers-over-time" class="nav-link" data-scroll-target="#plotting-median-income-for-fulltime-and-all-workers-over-time">Plotting Median Income for Fulltime and All Workers Over Time</a></li>
+  <li><a href="#loading-data-for-full-time-to-total-workers-ratio" id="toc-loading-data-for-full-time-to-total-workers-ratio" class="nav-link" data-scroll-target="#loading-data-for-full-time-to-total-workers-ratio">Loading Data for Full-time to Total Workers Ratio</a></li>
+  <li><a href="#plotting-full-time-to-total-workers-ratio-over-time" id="toc-plotting-full-time-to-total-workers-ratio-over-time" class="nav-link" data-scroll-target="#plotting-full-time-to-total-workers-ratio-over-time">Plotting Full-time to Total Workers Ratio Over Time</a></li>
+  <li><a href="#import-data-1" id="toc-import-data-1" class="nav-link" data-scroll-target="#import-data-1">Import Data</a></li>
+  <li><a href="#loading-data-for-percentage-of-households-in-each-income-bracket-over-time" id="toc-loading-data-for-percentage-of-households-in-each-income-bracket-over-time" class="nav-link" data-scroll-target="#loading-data-for-percentage-of-households-in-each-income-bracket-over-time">Loading Data for Percentage of Households in Each Income Bracket Over Time</a></li>
+  <li><a href="#plotting-percentage-of-households-in-each-income-bracket-over-time" id="toc-plotting-percentage-of-households-in-each-income-bracket-over-time" class="nav-link" data-scroll-target="#plotting-percentage-of-households-in-each-income-bracket-over-time">Plotting Percentage of Households in Each Income Bracket Over Time</a></li>
+  </ul></li>
+  <li><a href="#interpretations-and-conclusions" id="toc-interpretations-and-conclusions" class="nav-link" data-scroll-target="#interpretations-and-conclusions">Interpretations and Conclusions</a>
+  <ul class="collapse">
+  <li><a href="#gender-inequity-and-the-gender-wage-gap" id="toc-gender-inequity-and-the-gender-wage-gap" class="nav-link" data-scroll-target="#gender-inequity-and-the-gender-wage-gap">Gender Inequity and the Gender Wage Gap</a></li>
+  <li><a href="#moving-forward" id="toc-moving-forward" class="nav-link" data-scroll-target="#moving-forward">Moving Forward</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  </ul></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -233,14 +449,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-analysis" class="level1">
 <h1>Data Analysis</h1>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="import-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-data">Import Data</h2>
 <p>To begin, I downloaded my first Excel file for analysis from the Census Bureau page (Number and Real Median Earnings of Total Workers and Full-Time, Year-Round Workers by Sex and Female-to-Male Earnings Ratio: 1960 to 2017). Within the Excel sheet, I made minor adjustment to the data by deleting multiple rows used to describe one column data, consolidating one row for into one name for each column. I also deleted many superscripts that were interspersed within the “Year” column. I then downloaded this new file as “Data1” as it is my first data set I will be using in my project and uploaded the file into my “Data” folder within my “Final Project” folder. After I imported my data set, I then created a new dataframe “cleanData1” that converted the column characters to numeric. Finally, I used the great tables function to produce a summary table of my first data set on Female and Male work participation and earnings.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Data1.xls"</span>, </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">skip =</span> <span class="dv">3</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -250,12 +471,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>gt<span class="sc">::</span><span class="fu">gt</span>(cleanData1[<span class="dv">1</span><span class="sc">:</span><span class="dv">58</span>, ], )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="loading-data-for-total-male-and-female-workers-over-time" class="level2">
 <h2 class="anchored" data-anchor-id="loading-data-for-total-male-and-female-workers-over-time">Loading Data for Total Male and Female Workers Over Time</h2>
 <p>Next, I want to demonstrate the discrepancy between male and female work-participation over time. I will do this by transforming my column-wise data for total male and female workers to row-wise data, so I can group by year and have total male and female worker totals as defined by their respective male or female designation. I also decided to begin my data at 1967 so that the range of “Year” was divisible by a multiple of 5, as the last value is 2017.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>totals <span class="ot">&lt;-</span> cleanData1 <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(total_male_workers,total_female_workers), </span>
@@ -266,6 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(Year, sex, total) </span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(totals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="plotting-total-male-and-female-workers-over-time" class="level2">
@@ -273,6 +498,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I decided to initially demonstrate total male and female workers over time with a bar chart, with “Year” on the x-axis to show change over time, total amount of workers for each year on the y-axis, and female or male “sex” for each total as the color of the bar for each year. I chose to use the position “dodge” to place the column values for each sex for each year adjacent to each other so that the discrepancies between values can be depicted. Additionally, since there were many values for the “Year” x-axis, I decided the scale the x-axis to sequence the values from 1967 to 2017 by counts of 5.</p>
 <p>In the bar chart, it can be concluded that while both male and female total workers have increased over time, the total amount of male workers has always been visibly greater than total amount of female workers. However, it should be noted that the distance between the values of total male vs female workers has appeared to shrink slightly over time, and has held this distance.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(totals) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
@@ -299,6 +526,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      )</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name=</span><span class="st">"Sex"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>),<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"darkblue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
 (`geom_col()`).</code></pre>
@@ -316,6 +544,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="plotting-total-male-and-female-workers-over-time-1">Plotting Total Male and Female Workers Over Time</h2>
 <p>Next, I wanted to demonstrate the growths of each male and female total workers over time, and how significant legislation such as Title IX in 1973 may have be a factor in the decreased gap between male and female total workers as found earlier. To achieve this, I utilized a scatter plot with “Year” on the x-axis, “total” on the y-axis, and “sex” as the different colors. Within the scatterplot, I used geom_smooth to demonstrate the line of best fit for each sex as they increase in total workers over time, which also shows the growth rate each sex has for total workers. By observation, it can be noted that the growth rate of female workers is slightly greater than growth rate of male workers, as if the lines were extended past the graph, then there would be an intersection at a finite number. Additionally, I included a vertical line within the graph at the x-value of 1973, when Title IX was enacted. I included this line to demonstrate how legislation like this may have aided in the increased growth of female workers as the discrepancy between male and female workers appears to decrease slightly.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>totals <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
@@ -353,6 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1977</span>, <span class="at">y =</span> <span class="dv">80000</span>, <span class="at">label =</span> <span class="st">"Title IX"</span>) <span class="sc">+</span></span>
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"Sex"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>),<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"darkblue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -373,6 +604,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="loading-data-for-median-income-for-fulltime-and-all-workers-over-time">Loading Data for Median Income for Fulltime and All Workers Over Time</h2>
 <p>Next, I want to demonstrate how working full-time allows for an individual, male or female, to accumulate a higher salary, emphasizing the importance of working full-time to increase socioeconomic mobility. I will do this by transforming my column-wise data for total male and female median salary estimate and fulltime male and female median salary estimate to row-wise data, so I can group by year and have total and fulltime male and female median salary totals as defined by their respective variables. I also decided to begin my data at 1967 so that the range of “Year” was divisible by a multiple of 5, as the last value is 2017.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fulltime <span class="ot">&lt;-</span> cleanData1 <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(total_male_median_estimate,fulltime_male_median_estimate,total_female_median_estimate,fulltime_female_median_estimate), </span>
@@ -383,12 +616,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(Year, variable, estimate)</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(fulltime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="plotting-median-income-for-fulltime-and-all-workers-over-time" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-median-income-for-fulltime-and-all-workers-over-time">Plotting Median Income for Fulltime and All Workers Over Time</h2>
 <p>I wanted to visualize the significant difference in salary amount an individual makes when they are working full-time. To achieve this, I utilized a line graph with “Year” on the x-axis, the full-time or total estimate of salary for male and female workers on the y-axis, and each sex and full-time or total workers as the different colors. Since my four variables cannot be categorized within one group, I decided to utilize a manual color selection function to assign each variable a color within scale_color_manual. Female variables including full-time and total median salaries were in red colors, male variables including full-time and total median salaries were in blue colors, while full-time median salaries for both sexes were in their respective brighter shades.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fulltime <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
@@ -421,6 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">lim    =</span> <span class="fu">c</span>(<span class="dv">1967</span>, <span class="dv">2017</span>)</span>
 <span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
 <span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"Sex"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Fulltime Female"</span>, <span class="st">"Fulltime Male"</span>,<span class="st">"Female"</span>,<span class="st">"Male"</span>),<span class="at">values=</span><span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>,<span class="st">"darkred"</span>,<span class="st">"darkblue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Scale for colour is already present.
 Adding another scale for colour, which will replace the existing scale.</code></pre>
@@ -438,6 +675,8 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <h2 class="anchored" data-anchor-id="loading-data-for-full-time-to-total-workers-ratio">Loading Data for Full-time to Total Workers Ratio</h2>
 <p>After observing the significant impact working full-time has on one’s salary, which can augment one’s socioeconomic standing by working full-time and making a higher salary, I wanted to explore how much each gender participates in full-time jobs. I began by filtering from my dataset to not include values for “N”, which indicate NA values for my variables of full-time and total workers for both sexes. I then create a new variable for the full-time to total workers ratio for each male and female group, then select my necessary columns as Year and the ratios both female and male workers.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fulltime_ratio <span class="ot">&lt;-</span> cleanData1 <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    fulltime_female_workers <span class="sc">!=</span> <span class="st">"N"</span> <span class="sc">&amp;</span> </span>
@@ -459,6 +698,7 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(Year, sex, ratio)</span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>fulltime_ratio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
     Year sex                   ratio
@@ -481,6 +721,8 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <h2 class="anchored" data-anchor-id="plotting-full-time-to-total-workers-ratio-over-time">Plotting Full-time to Total Workers Ratio Over Time</h2>
 <p>I wanted to visualize the percentage of female and male workers that work full time after determining that working full time provides more oppurtunity for socioeconomic mobility by increasing salary. To achieve this, I utilized a line graph with “Year” on the x-axis, the full-time to total workers participation ratio for male and female workers on the y-axis, and each sex as the different colors. I also added two x-intercepts, one for the year Title IX was enacted in 1973 and one for the Financial Crisis of 2008 where a severe global economic recession occurred which lead to an increase in unemployment. I included Title IX as one of the many pivotal moments in women’s rights history which may have led to full-time to total female workers ratio to experience an increase in slope, closing the gap between men’s and women’s full-time to total workers ratio. I also included the 2008 recession to address the significant dip experienced by both the men’s and women’s full-time to total workers ratio.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fulltime_ratio <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
@@ -521,6 +763,7 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1977</span>, <span class="at">y =</span> <span class="fl">0.55</span>, <span class="at">label =</span> <span class="st">"Title IX"</span>) <span class="sc">+</span></span>
 <span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2014</span>, <span class="at">y =</span> <span class="fl">0.55</span>, <span class="at">label =</span> <span class="st">"Financial Crisis"</span>) <span class="sc">+</span></span>
 <span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"Sex"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>),<span class="at">values=</span><span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -534,6 +777,8 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <h2 class="anchored" data-anchor-id="import-data-1">Import Data</h2>
 <p>For my next data set, I downloaded my second Excel file for analysis from the Census Bureau page (Households by Total Money Income, Race, and Hispanic Origin of Householder: 1967 to 2017). Within the Excel sheet, I made minor adjustment to the data by deleting multiple rows used to describe one column data, consolidating one row for into one name for each column. I also deleted many superscripts that were interspersed within the “Year” column. I then downloaded this new file as “Data2” as it is my second data set I will be using in my project and uploaded the file into my “Data” folder within my “Final Project” folder. After I imported my data set, I then created a new dataframe “cleanData2” that converted the column characters to numeric. Finally, I used the great tables function to produce a summary table of my second data set on amount of households in each income bracket regardless of race or Hispanic origin in addition to median income.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Data2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Data2.xls"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -543,6 +788,7 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>gt<span class="sc">::</span><span class="fu">gt</span>(cleanData2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div id="napptspekp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#napptspekp table {
@@ -1633,6 +1879,8 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <h2 class="anchored" data-anchor-id="loading-data-for-percentage-of-households-in-each-income-bracket-over-time">Loading Data for Percentage of Households in Each Income Bracket Over Time</h2>
 <p>From observing the data from my first data set on male and female workers, it can be determined that we are on trend towards true equity between the sexes as the gap between total male and female workers and full-time to total workers for male and female workers narrows. Next, I want to demonstrate how augmenting female workers ability to work and work full-time affects equity among all households. I will do this by transforming my column-wise data for household income brackets to row-wise data, so I can have percentage values for each year for each income bracket.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>finalCleanData2 <span class="ot">&lt;-</span> cleanData2 <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"&lt;15000"</span> <span class="sc">:</span> <span class="st">"&gt;200000"</span>), </span>
@@ -1643,6 +1891,7 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(Year, income_bracket, percentage)</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>finalCleanData2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 459 × 3
     Year income_bracket percentage
@@ -1665,6 +1914,8 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <h2 class="anchored" data-anchor-id="plotting-percentage-of-households-in-each-income-bracket-over-time">Plotting Percentage of Households in Each Income Bracket Over Time</h2>
 <p>Now, I want to visualize where each income bracket trends over time from 1967 to 2017, and determine if any equalization occurs (lines generally trending towards the same “middle-ground” line). To achieve this, I utilized a scatterplot with “Year” on the x-axis, percentage of households on the y-axis, and the various income brackets as colors to categorized. I also included a line of best fit for each income bracket as it changes over time to better visualize each income brackets’ trend from 1967 to 2017. I noticed that most income brackets were around the “middle-ground” of the data set, generally experiencing little change from around their area. However, the highest initial percentage income bracket of 50,000-74,999 experienced the greatest decrease, while the two lowest initial percentage income brackets of 150,000-199,000 and 200,000 and greater experienced the greatest increase. The relative trend of all income brackets over this time generally trending toward the “middle-ground” of the data implies that household income equity is becoming greater than it was in 1967 and is on trend to continue becoming more equitable.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>finalCleanData2 <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(income_bracket) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(percentage)) <span class="sc">|&gt;</span> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -1699,6 +1950,7 @@ Adding another scale for colour, which will replace the existing scale.</code></
 <span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>      ) </span>
 <span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"Household Earning Range"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"&lt;$15000"</span>, <span class="st">"$15000-24999"</span>,<span class="st">"$25000-34999"</span>, <span class="st">"$35000-49999"</span>,<span class="st">"$50000-74999"</span>,<span class="st">"$75000-99999"</span>,<span class="st">"$100000-149999"</span>,<span class="st">"$150000-199999"</span>,<span class="st">"&gt;$200000"</span>),<span class="at">values=</span><span class="fu">c</span>(<span class="st">"salmon"</span>,<span class="st">"orange"</span>,<span class="st">"yellow"</span>,<span class="st">"lightgreen"</span>,<span class="st">"cyan"</span>,<span class="st">"blue"</span>,<span class="st">"darkblue"</span>,<span class="st">"purple"</span>,<span class="st">"pink"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -1743,6 +1995,19 @@ Adding another scale for colour, which will replace the existing scale.</code></
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -2145,4 +2410,5 @@ Adding another scale for colour, which will replace the existing scale.</code></
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
